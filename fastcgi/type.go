@@ -1,11 +1,20 @@
 package fastcgi
 
+import "net"
+
+type Socket struct {
+	socketPath string
+	listener   net.Listener
+}
+
 type RequestContext struct {
 	RequestId uint16
 	Params    map[string]string
 	StdIn     []byte
 	StdOut    []byte
 }
+
+const DefaultSocketPath = "/var/run/php-fubar.sock"
 
 type RecordType uint8
 
