@@ -36,7 +36,7 @@ func (socket *Socket) Listen() {
 		conn, err := socket.listener.Accept()
 
 		if err != nil {
-			log.Fatal("Error accepting connection", err)
+			log.Println("Error accepting connection", err)
 			continue
 		}
 
@@ -51,7 +51,7 @@ func handleConncetion(conn net.Conn) {
 	_, err := conn.Read(buffer)
 
 	if err != nil {
-		log.Fatal("Error reading from connection", err)
+		log.Println("Error reading from connection", err)
 	}
 
 	_, _ = conn.Write(buffer)
